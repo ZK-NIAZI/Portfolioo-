@@ -1,13 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Background animation
-    const background = document.querySelector('.background-animation');
-    if (background) {
-        document.addEventListener('mousemove', (e) => {
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            background.style.transform = `translate(${x * 15}px, ${y * 15}px)`; // Reduced intensity
-        });
-    }
+// Follow cursor with icons
+const floatingIcons = document.querySelectorAll('.floating-icon img');
+
+// Track cursor movement
+let mouseX = 0, mouseY = 0;
+
+window.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX / window.innerWidth) * 100 - 50; // Normalize to -50 to 50
+    mouseY = (e.clientY / window.innerHeight) * 100 - 50;
+});
+
+function animateIcons() {
+    floatingIcons.forEach((icon, index) => {
+        // Calculate movement with index offset for natural lag
+        const offset = (index + 1) * 0.05; // Different movement speed
+        icon.parentElement.style.transform = `translate(${mouseX * offset}px, ${mouseY * offset}px)`;
+    });
+
+    requestAnimationFrame(animateIcons);
+}
+
+animateIcons();
 
     // Smooth scrolling for nav links
     const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
@@ -39,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // "View My Work" button scroll
-    const viewWorkBtn = document.querySelector('.hero .verify-btn');
+    const viewWorkBtn = document.querySelector('.hero .primary-btn');
     if (viewWorkBtn) {
         viewWorkBtn.addEventListener('click', () => {
             const projectsSection = document.querySelector('#projects');
@@ -49,8 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // "Contact Me" button scroll (from hero)
-    const contactMeBtnHero = document.querySelector('.hero .demo-btn');
+    // "Let's Connect" button scroll (from hero)
+    const contactMeBtnHero = document.querySelector('.hero .secondary-btn');
     if (contactMeBtnHero) {
         contactMeBtnHero.addEventListener('click', () => {
             const contactSection = document.querySelector('#contact');
