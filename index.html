@@ -41,92 +41,197 @@
     <main>
         <section id="hero" class="hero">
             <div class="hero-background">
-                <div class="floating-shapes">
-                    <div class="shape shape-1"></div>
-                    <div class="shape shape-2"></div>
-                    <div class="shape shape-3"></div>
+                <div class="animated-bg">
+                    <div class="gradient-sphere sphere-1"></div>
+                    <div class="gradient-sphere sphere-2"></div>
+                    <div class="gradient-sphere sphere-3"></div>
+                    <div class="particles"></div>
                 </div>
             </div>
             
-            <div class="hero-content">
-                <div class="hero-intro">
-                    <span class="greeting">👋 Hello, I'm</span>
-                    <h1 class="main-title">
-                        <span class="name-first">Zeeshan</span>
-                        <span class="name-last">Khan</span>
-                        <span class="role-text">Flutter Developer</span>
-                    </h1>
-                    <p class="hero-subtitle">
-                        Crafting high-performance mobile applications with
-                        <span class="highlight">Flutter</span> & <span class="highlight">Dart</span>
-                    </p>
-                </div>
-
-                <div class="stats">
-                    <div class="stat">
-                        <div class="stat-number">1.5+</div>
-                        <div class="stat-label">Years Experience</div>
+            <div class="hero-wrapper">
+                <div class="hero-content">
+                    <div class="hero-left">
+                        <div class="hero-badge">
+                            <span class="badge-icon">✨</span>
+                            <span class="badge-text">Available for Projects</span>
+                        </div>
+                        
+                        <h1 class="hero-title">
+                            <span class="title-line">Hi, I'm <span class="gradient-text">Zeeshan Khan</span></span>
+                            <span class="title-line">Flutter Developer</span>
+                        </h1>
+                        
+                        <p class="hero-description">
+                            Crafting beautiful, performant mobile experiences with 
+                            <span class="tech-highlight">Flutter</span> & <span class="tech-highlight">Dart</span>
+                        </p>
+                        
+                        <div class="hero-stats-inline">
+                            <div class="stat-inline">
+                                <span class="stat-value">5+</span>
+                                <span class="stat-text">Apps Delivered</span>
+                            </div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-inline">
+                                <span class="stat-value">2</span>
+                                <span class="stat-text">Companies</span>
+                            </div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-inline">
+                                <span class="stat-value">100%</span>
+                                <span class="stat-text">Client Satisfaction</span>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-cta">
+                            <a href="#projects" class="cta-primary">
+                                <span class="cta-text">Explore My Work</span>
+                                <span class="cta-icon">
+                                    <i class="fas fa-arrow-right"></i>
+                                </span>
+                            </a>
+                            <a href="#contact" class="cta-secondary">
+                                <span class="cta-icon">
+                                    <i class="fas fa-comment"></i>
+                                </span>
+                                <span class="cta-text">Let's Talk</span>
+                            </a>
+                        </div>
+                        
+                        <div class="hero-socials">
+                            <a href="https://github.com/ZK-NIAZI/" target="_blank" class="social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/zeeshan-niazi-app-developer/" target="_blank" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="mailto:shaniniazi568@gmail.com" class="social-link">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <div class="stat-number">5+</div>
-                        <div class="stat-label">Apps Built</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">2</div>
-                        <div class="stat-label">Companies</div>
+                    
+                    <div class="hero-right">
+                        <div class="hero-image-wrapper">
+                            <div class="image-decoration">
+                                <div class="decoration-ring ring-1"></div>
+                                <div class="decoration-ring ring-2"></div>
+                                <div class="decoration-ring ring-3"></div>
+                            </div>
+                            <div class="hero-image-container">
+                                <img src="logo.png" alt="Zeeshan Khan" class="hero-img">
+                            </div>
+                            <div class="floating-elements">
+                                <div class="float-element element-1">
+                                    <img src="flutter-icon.png" alt="Flutter">
+                                </div>
+                                <div class="float-element element-2">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="float-element element-3">
+                                    <i class="fab fa-android"></i>
+                                </div>
+                                <div class="float-element element-4">
+                                    <i class="fab fa-apple"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <p class="hero-description">
-                    Passionate about building robust, scalable mobile solutions that deliver 
-                    exceptional user experiences across iOS and Android platforms.
-                </p>
-
-                <div class="cta-buttons">
-                    <button class="primary-btn">View My Work <i class="fas fa-arrow-right"></i></button>
-                    <button class="secondary-btn">Let's Connect <i class="fas fa-envelope"></i></button>
-                </div>
-
+                
                 <div class="scroll-indicator">
-                    <span>Scroll to explore</span>
-                    <div class="scroll-arrow">
-                        <i class="fas fa-chevron-down"></i>
+                    <div class="mouse">
+                        <div class="wheel"></div>
                     </div>
+                    <span class="scroll-text">Scroll to explore</span>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="info-section">
+        <section id="about" class="about-section">
             <div class="container">
-                <h2>About Me</h2>
+                <div class="section-header">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="section-subtitle">Passionate Flutter Developer crafting exceptional mobile experiences</p>
+                </div>
+                
                 <div class="about-content">
-                    <div class="about-details">
+                    <div class="about-intro">
                         <p class="lead">
                             <span role="img" aria-label="waving hand">👋</span> Hi, I'm <strong>Zeeshan Khan</strong>, a passionate Flutter Developer crafting high-performance, cross-platform mobile applications.
                         </p>
-                        <p>
-                            With a bachelor's degree in Computer Science and experience at leading tech companies, I specialize in creating user-friendly, scalable apps using <span class="highlight">Flutter</span>, <span class="highlight">Dart</span>, <span class="highlight">Bloc/Cubit</span>, <span class="highlight">Firebase</span>, and <span class="highlight">REST APIs</span>.
-                        </p>
-                        <p class="specialization">
-                            <strong>Specialties:</strong>
-                            <ul class="skills">
-                                <li class="skill">Building responsive UIs and clean architectures</li>
-                                <li class="skill">Managing app lifecycles for both iOS and Android</li>
-                                <li class="skill">Solving real-world problems with creative solutions</li>
-                                <li class="skill">Integrating APIs, Firebase, and third-party SDKs</li>
-                                <li class="skill">Adhering to clean code principles (SOLID)</li>
-                            </ul>
-                        </p>
-                        <p>
-                            I excel in collaborative environments and love tackling new challenges that push my limits. Currently, I'm delving into <span class="highlight">advanced Flutter animations</span>, <span class="highlight">performance optimization</span>, and <span class="highlight">backend integration</span>.
-                        </p>
-                        <p>
-                            Let’s connect if you want to build something impactful or collaborate on mobile innovations! <span role="img" aria-label="rocket">🚀</span>
+                        <p class="intro-text">
+                            With a bachelor's degree in Computer Science and experience at leading tech companies, I specialize in creating user-friendly, scalable apps using modern technologies.
                         </p>
                     </div>
 
-                    <div class="about-image">
-                        <img src="logo.png" alt="Zeeshan Khan" class="profile-pic">
+                    <div class="about-highlights">
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3>Mobile Expertise</h3>
+                            <p>Specialized in <span class="tech-tag">Flutter</span>, <span class="tech-tag">Dart</span>, and cross-platform development</p>
+                        </div>
+                        
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3>Clean Architecture</h3>
+                            <p>Expert in <span class="tech-tag">Bloc/Cubit</span>, <span class="tech-tag">SOLID principles</span>, and scalable code</p>
+                        </div>
+                        
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <h3>Backend Integration</h3>
+                            <p>Proficient with <span class="tech-tag">Firebase</span>, <span class="tech-tag">REST APIs</span>, and cloud services</p>
+                        </div>
+                    </div>
+
+                    <div class="specialties-section">
+                        <h3 class="specialties-title">Core Specialties</h3>
+                        <div class="specialties-grid">
+                            <div class="specialty-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Building responsive UIs and clean architectures</span>
+                            </div>
+                            <div class="specialty-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Managing app lifecycles for both iOS and Android</span>
+                            </div>
+                            <div class="specialty-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Solving real-world problems with creative solutions</span>
+                            </div>
+                            <div class="specialty-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Integrating APIs, Firebase, and third-party SDKs</span>
+                            </div>
+                            <div class="specialty-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Adhering to clean code principles (SOLID)</span>
+                            </div>
+                            <div class="specialty-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Advanced Flutter animations and performance optimization</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-footer">
+                        <p class="closing-statement">
+                            I excel in collaborative environments and love tackling new challenges that push my limits. Let's connect if you want to build something impactful or collaborate on mobile innovations! <span role="img" aria-label="rocket">🚀</span>
+                        </p>
+                        <div class="about-cta">
+                            <a href="#contact" class="about-cta-btn">
+                                <span>Let's Work Together</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

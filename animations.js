@@ -1,4 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Typing animation
+    const typingElement = document.querySelector('.typing-text');
+    const phrases = ['Mobile Apps', 'Flutter Solutions', 'iOS & Android', 'User Experiences'];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+
+    function typeWriter() {
+        const currentPhrase = phrases[phraseIndex];
+        
+        if (isDeleting) {
+            typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+            charIndex--;
+            typingSpeed = 50;
+        } else {
+            typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+            charIndex++;
+            typingSpeed = 100;
+        }
+        
+        if (!isDeleting && charIndex === currentPhrase.length) {
+            isDeleting = true;
+            typingSpeed = 2000; // Pause at end
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            typingSpeed = 500; // Pause before typing next
+        }
+        
+        setTimeout(typeWriter, typingSpeed);
+    }
+    
+    if (typingElement) {
+        typeWriter();
+    }
 // Follow cursor with icons
 const floatingIcons = document.querySelectorAll('.floating-icon img');
 
@@ -52,7 +88,7 @@ animateIcons();
     }
 
     // "View My Work" button scroll
-    const viewWorkBtn = document.querySelector('.hero .primary-btn');
+    const viewWorkBtn = document.querySelector('.hero .btn-primary');
     if (viewWorkBtn) {
         viewWorkBtn.addEventListener('click', () => {
             const projectsSection = document.querySelector('#projects');
@@ -63,7 +99,7 @@ animateIcons();
     }
 
     // "Let's Connect" button scroll (from hero)
-    const contactMeBtnHero = document.querySelector('.hero .secondary-btn');
+    const contactMeBtnHero = document.querySelector('.hero .btn-secondary');
     if (contactMeBtnHero) {
         contactMeBtnHero.addEventListener('click', () => {
             const contactSection = document.querySelector('#contact');
