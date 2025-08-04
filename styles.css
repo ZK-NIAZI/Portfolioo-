@@ -1049,36 +1049,13 @@ body {
     }
 }
 
-.projects {
-    padding: 4rem;
-    background: rgba(255, 255, 255, 0.02); /* Subtle background */
-
-
-.skills {
-    background: var(--secondary-bg);
+#projects {
     padding: 6rem 2rem;
+    background: var(--primary-bg);
     position: relative;
-    overflow: hidden;
 }
 
-.skills::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 20% 80%, rgba(255, 77, 0, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(0, 102, 255, 0.05) 0%, transparent 50%);
-    z-index: 0;
-}
-
-.skills .container {
-    position: relative;
-    z-index: 1;
-}
-
-.skills h2 {
+#projects h2 {
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     margin-bottom: 1rem;
     text-align: center;
@@ -1090,7 +1067,67 @@ body {
     font-weight: 800;
 }
 
-.skills h2::after {
+#projects h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 4rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+#skills {
+    background: var(--secondary-bg);
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+#skills::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 80%, rgba(255, 77, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 102, 255, 0.05) 0%, transparent 50%);
+    z-index: 0;
+}
+
+#skills .container {
+    position: relative;
+    z-index: 1;
+}
+
+#skills h2 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: 1rem;
+    text-align: center;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    font-weight: 800;
+}
+
+#skills h2::after {
     content: '';
     position: absolute;
     bottom: -10px;
@@ -1317,14 +1354,14 @@ body {
     font-style: italic;
 }
 
-.experience {
+#experience {
     padding: 6rem 2rem;
     background: var(--secondary-bg);
     position: relative;
     overflow: hidden;
 }
 
-.experience::before {
+#experience::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1336,12 +1373,12 @@ body {
     z-index: 0;
 }
 
-.experience .container {
+#experience .container {
     position: relative;
     z-index: 1;
 }
 
-.experience h2 {
+#experience h2 {
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     margin-bottom: 1rem;
     text-align: center;
@@ -1353,7 +1390,7 @@ body {
     font-weight: 800;
 }
 
-.experience h2::after {
+#experience h2::after {
     content: '';
     position: absolute;
     bottom: -10px;
@@ -1419,12 +1456,12 @@ body {
     font-size: 1.1rem; /* Slightly larger */
 }
 
-.education {
+#education {
     padding: 6rem 2rem;
     background: var(--primary-bg);
 }
 
-.education h2 {
+#education h2 {
     font-size: 3rem;
     margin-bottom: 1rem;
     text-align: center;
@@ -1584,13 +1621,13 @@ body {
     color: white;
 }
 
-.contact {
+#contact {
     padding: 4rem;
     text-align: center;
     /* background: rgba(255, 255, 255, 0.02); Already there */
 }
 
-.contact h2 {
+#contact h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     color: var(--accent-orange); /* Accent color */
@@ -1662,7 +1699,7 @@ body {
 
 /* Styles for elements animated by IntersectionObserver */
 .stat, .hero-text, .main-title, .skill-item, .project-card, .experience-card, .education-card,
-.info-section h2, .skills h2, .projects h2, .experience h2, .education h2, .contact h2,
+.info-section h2, #skills h2, #projects h2, #experience h2, #education h2, #contact h2,
 .about-image, .about-text p, .about-text ul {
     opacity: 0;
     transform: translateY(30px);
@@ -2223,7 +2260,7 @@ section {
         padding: 3rem 1.5rem;
     }
 
-    .skills h2, .projects h2, .experience h2, .education h2, .contact h2, .info-section h2 {
+    #skills h2, #projects h2, #experience h2, #education h2, #contact h2, .info-section h2 {
         font-size: 2rem;
         margin-bottom: 2rem;
     }

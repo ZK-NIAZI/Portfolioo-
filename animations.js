@@ -84,7 +84,7 @@ animateIcons();
     }
 
     // Intersection Observer for scroll animations
-    const animatedElements = document.querySelectorAll('.stat, .hero-text, .main-title, .skill-item, .project-card, .experience-card, .education-card, .info-section h2, .skills h2, .projects h2, .experience h2, .education h2, .contact h2, .about-image, .about-text p, .about-text ul');
+    const animatedElements = document.querySelectorAll('.stat, .hero-text, .main-title, .skill-item, .project-card, .experience-card, .education-card, .info-section h2, #skills h2, #projects h2, #experience h2, #education h2, #contact h2, .about-image, .about-text p, .about-text ul');
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
