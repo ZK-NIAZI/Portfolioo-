@@ -1,4 +1,9 @@
+// Portfolio animations and interactions
+// Version: 1.0.0 - December 2024
+// Author: Zeeshan Khan
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize all animations when DOM is ready
     // Typing animation
     const typingElement = document.querySelector('.typing-text');
     const phrases = ['Mobile Apps', 'Flutter Solutions', 'iOS & Android', 'User Experiences'];
