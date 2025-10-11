@@ -1,0 +1,508 @@
+/**
+ * Theme Animations - Micro-interactions & Transitions
+ * GPU-accelerated animations for smooth 60fps performance
+ */
+
+/* Keyframe Animations */
+
+/* Fade In from Bottom */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In from Top */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scale In */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Slide In from Left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide In from Right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Glow Pulse Animation */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(199, 255, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(199, 255, 0, 0.6);
+  }
+}
+
+/* Shimmer Effect */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Typewriter Cursor Blink */
+@keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Rotate Continuous */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Float Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Neon Border Glow Animation */
+@keyframes neonBorder {
+  0%, 100% {
+    border-color: rgba(199, 255, 0, 0.3);
+    box-shadow: 0 0 5px rgba(199, 255, 0, 0.2);
+  }
+  50% {
+    border-color: rgba(0, 212, 255, 0.6);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+  }
+}
+
+/* Gradient Animation for Backgrounds */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ==================== */
+/* Navigation Animations */
+/* ==================== */
+
+.navbar {
+  animation: fadeInDown 0.6s var(--easing) forwards;
+}
+
+.nav-links a,
+.resume-btn,
+.get-started {
+  transition: all var(--timing-base) var(--easing);
+  position: relative;
+}
+
+/* Animated Underline for Nav Links */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 80%;
+  height: 2px;
+  background: var(--accent-lime);
+  transition: transform var(--timing-base) var(--easing);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Mobile Menu Animation */
+.hamburger-menu span {
+  transition: all var(--timing-base) var(--easing);
+}
+
+.hamburger-menu.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* ==================== */
+/* Hero Section Animations */
+/* ==================== */
+
+.hero-content {
+  animation: fadeInUp 0.8s var(--easing) 0.2s backwards;
+}
+
+.hero-badge {
+  animation: fadeInUp 0.6s var(--easing) 0.4s backwards;
+}
+
+.hero-title {
+  animation: fadeInUp 0.8s var(--easing) 0.6s backwards;
+}
+
+.hero-description {
+  animation: fadeInUp 0.8s var(--easing) 0.8s backwards;
+}
+
+.hero-stats-inline {
+  animation: fadeInUp 0.8s var(--easing) 1s backwards;
+}
+
+.hero-cta {
+  animation: fadeInUp 0.8s var(--easing) 1.2s backwards;
+}
+
+.hero-socials {
+  animation: fadeInUp 0.8s var(--easing) 1.4s backwards;
+}
+
+.hero-right {
+  animation: fadeInRight 1s var(--easing) 0.6s backwards;
+}
+
+/* Hero Image Float Animation */
+.hero-image-wrapper {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Floating Elements Around Hero Image */
+.float-element {
+  animation: float 3s ease-in-out infinite;
+}
+
+.float-element:nth-child(1) { animation-delay: 0s; }
+.float-element:nth-child(2) { animation-delay: 0.5s; }
+.float-element:nth-child(3) { animation-delay: 1s; }
+.float-element:nth-child(4) { animation-delay: 1.5s; }
+
+/* ==================== */
+/* Button Micro-interactions */
+/* ==================== */
+
+.cta-primary,
+.cta-secondary,
+.btn-primary,
+button {
+  transition: all var(--timing-base) var(--easing);
+  will-change: transform, box-shadow;
+}
+
+.cta-primary:hover,
+.btn-primary:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(199, 255, 0, 0.4);
+}
+
+.cta-primary:active,
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Icon rotation on hover */
+.cta-primary:hover .cta-icon,
+.cta-secondary:hover .cta-icon {
+  transform: translateX(4px);
+  transition: transform var(--timing-base) var(--easing);
+}
+
+/* ==================== */
+/* Card Animations */
+/* ==================== */
+
+.project-card,
+.service-card,
+.skill-category,
+.highlight-card,
+.timeline-item,
+.education-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all var(--timing-base) var(--easing);
+}
+
+.project-card.visible,
+.service-card.visible,
+.skill-category.visible,
+.highlight-card.visible,
+.timeline-item.visible,
+.education-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card Hover Effects */
+.project-card,
+.service-card,
+.highlight-card {
+  transition: all var(--timing-base) var(--easing);
+  will-change: transform, box-shadow, border-color;
+}
+
+.project-card:hover,
+.service-card:hover,
+.highlight-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6),
+              0 0 20px rgba(0, 212, 255, 0.3);
+  border-color: rgba(0, 212, 255, 0.5);
+}
+
+/* ==================== */
+/* Skill Badge Animations */
+/* ==================== */
+
+.skill-item {
+  transition: all var(--timing-base) var(--easing);
+  will-change: transform, box-shadow;
+}
+
+.skill-item:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(124, 77, 255, 0.4);
+}
+
+/* ==================== */
+/* Link Hover Effects */
+/* ==================== */
+
+.social-link,
+.play-store-link,
+.about-cta-btn {
+  position: relative;
+  transition: all var(--timing-base) var(--easing);
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent-cyan);
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity var(--timing-base) var(--easing);
+  z-index: -1;
+}
+
+.social-link:hover::before {
+  opacity: 0.1;
+}
+
+.social-link:hover {
+  transform: translateY(-2px);
+  color: var(--accent-cyan);
+}
+
+/* ==================== */
+/* Scroll Indicator Animation */
+/* ==================== */
+
+.scroll-indicator {
+  animation: fadeInUp 1s var(--easing) 1.6s backwards;
+}
+
+.mouse .wheel {
+  animation: scroll 1.5s ease-in-out infinite;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== */
+/* Parallax Effect Base */
+/* ==================== */
+
+.parallax-layer {
+  will-change: transform;
+  transition: transform 0.3s ease-out;
+}
+
+/* ==================== */
+/* Feature Tags & Badges */
+/* ==================== */
+
+.feature-tag,
+.tech-tag,
+.subject-tag,
+.skill-level {
+  transition: all var(--timing-fast) var(--easing);
+}
+
+.feature-tag:hover,
+.tech-tag:hover,
+.subject-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(199, 255, 0, 0.3);
+}
+
+/* ==================== */
+/* Image Zoom on Hover */
+/* ==================== */
+
+.project-image img,
+.hero-img {
+  transition: transform var(--timing-slow) var(--easing);
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+/* ==================== */
+/* Loading Shimmer Effect */
+/* ==================== */
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(199, 255, 0, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* ==================== */
+/* Neon Glow Button Effect */
+/* ==================== */
+
+.neon-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.neon-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(199, 255, 0, 0.4);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.neon-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* ==================== */
+/* Stagger Delay Utilities */
+/* ==================== */
+
+.stagger-1 { animation-delay: 0.1s !important; }
+.stagger-2 { animation-delay: 0.2s !important; }
+.stagger-3 { animation-delay: 0.3s !important; }
+.stagger-4 { animation-delay: 0.4s !important; }
+.stagger-5 { animation-delay: 0.5s !important; }
+.stagger-6 { animation-delay: 0.6s !important; }
+
+/* ==================== */
+/* Performance Optimizations */
+/* ==================== */
+
+.will-animate {
+  will-change: transform, opacity;
+}
+
+/* Remove will-change after animation */
+.animation-complete {
+  will-change: auto;
+}
+
+/* ==================== */
+/* Reduced Motion Override */
+/* ==================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-image-wrapper,
+  .float-element,
+  .mouse .wheel {
+    animation: none !important;
+  }
+
+  .parallax-layer {
+    transform: none !important;
+  }
+}

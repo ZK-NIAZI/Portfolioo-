@@ -1,0 +1,631 @@
+/**
+ * Dark Theme Override - Apply cyberpunk dark theme to existing elements
+ * This file overrides existing styles with the new dark code aesthetic
+ */
+
+/* ==================== */
+/* Navbar Glass Effect */
+/* ==================== */
+
+.navbar {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid var(--glass-border) !important;
+  box-shadow: var(--shadow-md) !important;
+  transition: all var(--timing-base) var(--easing) !important;
+}
+
+.navbar.scrolled {
+  background: rgba(6, 6, 10, 0.95) !important;
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(124, 77, 255, 0.1) !important;
+}
+
+.navbar.navbar-hidden {
+  transform: translateY(-100%);
+}
+
+.nav-links a {
+  color: var(--text-primary) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  transition: color var(--timing-base) var(--easing) !important;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent-lime) !important;
+}
+
+.resume-btn,
+.get-started {
+  background: linear-gradient(135deg, var(--accent-lime), var(--accent-cyan)) !important;
+  color: var(--bg-primary) !important;
+  border: none !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: var(--radius-md) !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 600 !important;
+  transition: all var(--timing-base) var(--easing) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.resume-btn:hover,
+.get-started:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: var(--glow-lime) !important;
+}
+
+/* ==================== */
+/* Hero Section Dark Theme */
+/* ==================== */
+
+.hero {
+  background: var(--bg-primary) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  will-change: transform;
+}
+
+.hero-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(124, 77, 255, 0.15), transparent 50%),
+              radial-gradient(circle at 80% 50%, rgba(0, 212, 255, 0.1), transparent 50%);
+  z-index: 1;
+}
+
+.hero-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  background: var(--glass-bg) !important;
+  border: 1px solid var(--accent-lime) !important;
+  color: var(--accent-lime) !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: var(--radius-lg) !important;
+  font-family: var(--font-mono) !important;
+  box-shadow: var(--glow-lime) !important;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+.hero-title {
+  font-family: var(--font-mono) !important;
+  color: var(--text-primary) !important;
+  font-size: 3.5rem !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+}
+
+.hero-title::before {
+  content: '< ';
+  color: var(--accent-cyan);
+  margin-right: 0.5rem;
+}
+
+.hero-title::after {
+  content: ' />';
+  color: var(--accent-cyan);
+  margin-left: 0.5rem;
+}
+
+.hero-description {
+  color: var(--text-secondary) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 1.1rem !important;
+  line-height: 1.6 !important;
+}
+
+/* ==================== */
+/* CTA Buttons Neon Style */
+/* ==================== */
+
+.cta-primary {
+  background: var(--accent-lime) !important;
+  color: var(--bg-primary) !important;
+  padding: 1rem 2rem !important;
+  border-radius: var(--radius-md) !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  transition: all var(--timing-base) var(--easing) !important;
+  box-shadow: var(--shadow-md) !important;
+  border: 2px solid var(--accent-lime) !important;
+}
+
+.cta-primary:hover {
+  transform: scale(1.03) !important;
+  box-shadow: var(--glow-lime) !important;
+  background: transparent !important;
+  color: var(--accent-lime) !important;
+}
+
+.cta-secondary {
+  background: transparent !important;
+  color: var(--accent-cyan) !important;
+  padding: 1rem 2rem !important;
+  border: 2px solid var(--accent-cyan) !important;
+  border-radius: var(--radius-md) !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  transition: all var(--timing-base) var(--easing) !important;
+}
+
+.cta-secondary:hover {
+  background: var(--accent-cyan) !important;
+  color: var(--bg-primary) !important;
+  box-shadow: var(--glow-cyan) !important;
+  transform: scale(1.03) !important;
+}
+
+/* ==================== */
+/* Social Links Neon */
+/* ==================== */
+
+.hero-socials .social-link,
+.social-link {
+  background: var(--bg-panel) !important;
+  color: var(--text-primary) !important;
+  padding: 0.75rem !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-md) !important;
+  transition: all var(--timing-base) var(--easing) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.hero-socials .social-link:hover,
+.social-link:hover {
+  border-color: var(--accent-purple) !important;
+  background: var(--accent-purple) !important;
+  color: var(--text-primary) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: var(--glow-purple) !important;
+}
+
+/* ==================== */
+/* Section Headers */
+/* ==================== */
+
+.section-title,
+h2 {
+  color: var(--text-primary) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1rem !important;
+}
+
+.section-subtitle {
+  color: var(--text-secondary) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 1.1rem !important;
+}
+
+/* ==================== */
+/* Cards Dark Theme */
+/* ==================== */
+
+.highlight-card,
+.service-card,
+.project-card {
+  background: var(--bg-panel) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-lg) !important;
+  padding: 2rem !important;
+  transition: all var(--timing-base) var(--easing) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.highlight-card:hover,
+.service-card:hover,
+.project-card:hover {
+  transform: translateY(-8px) !important;
+  border-color: var(--accent-cyan) !important;
+  box-shadow: var(--shadow-lg), var(--glow-cyan) !important;
+  background: var(--bg-elevated) !important;
+}
+
+.highlight-card h3,
+.service-card h3,
+.project-card h3 {
+  color: var(--text-primary) !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 600 !important;
+}
+
+.highlight-card p,
+.service-card p,
+.project-card p {
+  color: var(--text-secondary) !important;
+  font-family: var(--font-mono) !important;
+  line-height: 1.6 !important;
+}
+
+/* ==================== */
+/* Icon Styling */
+/* ==================== */
+
+.highlight-icon,
+.service-icon {
+  background: var(--bg-secondary) !important;
+  color: var(--accent-purple) !important;
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: var(--radius-md) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.5rem !important;
+  margin-bottom: 1rem !important;
+  border: 1px solid var(--border-accent) !important;
+  transition: all var(--timing-base) var(--easing) !important;
+}
+
+.highlight-card:hover .highlight-icon,
+.service-card:hover .service-icon {
+  background: var(--accent-purple) !important;
+  color: var(--text-primary) !important;
+  box-shadow: var(--glow-purple) !important;
+  transform: scale(1.1) rotate(5deg) !important;
+}
+
+/* ==================== */
+/* Feature Tags */
+/* ==================== */
+
+.feature-tag,
+.tech-tag,
+.subject-tag {
+  background: var(--bg-secondary) !important;
+  color: var(--accent-lime) !important;
+  padding: 0.4rem 0.8rem !important;
+  border-radius: var(--radius-sm) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.85rem !important;
+  border: 1px solid var(--border-accent) !important;
+  transition: all var(--timing-fast) var(--easing) !important;
+  display: inline-block !important;
+  margin: 0.25rem !important;
+}
+
+.feature-tag:hover,
+.tech-tag:hover,
+.subject-tag:hover {
+  background: var(--accent-lime) !important;
+  color: var(--bg-primary) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: var(--glow-lime) !important;
+}
+
+/* ==================== */
+/* Skills Section */
+/* ==================== */
+
+.skill-category {
+  background: var(--bg-panel) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-lg) !important;
+  padding: 2rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.skill-category h3 {
+  color: var(--text-primary) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+.skill-item {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 1rem !important;
+  text-align: center !important;
+  transition: all var(--timing-base) var(--easing) !important;
+}
+
+.skill-item:hover {
+  background: var(--bg-elevated) !important;
+  border-color: var(--accent-purple) !important;
+  transform: translateY(-4px) scale(1.05) !important;
+  box-shadow: var(--glow-purple) !important;
+}
+
+.skill-item span {
+  color: var(--text-primary) !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 500 !important;
+}
+
+.skill-level {
+  background: var(--accent-cyan) !important;
+  color: var(--bg-primary) !important;
+  padding: 0.25rem 0.5rem !important;
+  border-radius: var(--radius-sm) !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  margin-top: 0.5rem !important;
+  display: inline-block !important;
+}
+
+.skill-item.expert .skill-level {
+  background: var(--accent-lime) !important;
+}
+
+.skill-item.advanced .skill-level {
+  background: var(--accent-cyan) !important;
+}
+
+.skill-item.intermediate .skill-level {
+  background: var(--accent-purple) !important;
+}
+
+/* ==================== */
+/* Timeline Styling */
+/* ==================== */
+
+.timeline-item,
+.education-item {
+  background: var(--bg-panel) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-left: 4px solid var(--accent-cyan) !important;
+  border-radius: var(--radius-lg) !important;
+  padding: 2rem !important;
+  margin-bottom: 2rem !important;
+  transition: all var(--timing-base) var(--easing) !important;
+  position: relative !important;
+}
+
+.timeline-item.current {
+  border-left-color: var(--accent-lime) !important;
+  box-shadow: var(--glow-lime) !important;
+}
+
+.timeline-item:hover,
+.education-item:hover {
+  transform: translateX(8px) !important;
+  border-left-width: 8px !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.company-name,
+.university-name {
+  color: var(--text-primary) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+}
+
+.job-title,
+.degree {
+  color: var(--accent-cyan) !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 500 !important;
+}
+
+.duration-badge {
+  background: var(--accent-cyan) !important;
+  color: var(--bg-primary) !important;
+  padding: 0.25rem 0.75rem !important;
+  border-radius: var(--radius-sm) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+}
+
+.duration-badge.current {
+  background: var(--accent-lime) !important;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+.achievement-item,
+.specialty-item {
+  color: var(--text-secondary) !important;
+  font-family: var(--font-mono) !important;
+  padding: 0.75rem !important;
+  margin: 0.5rem 0 !important;
+  border-left: 2px solid var(--accent-purple) !important;
+  padding-left: 1rem !important;
+  transition: all var(--timing-fast) var(--easing) !important;
+}
+
+.achievement-item:hover,
+.specialty-item:hover {
+  border-left-color: var(--accent-lime) !important;
+  background: var(--bg-secondary) !important;
+  padding-left: 1.5rem !important;
+}
+
+.achievement-item i,
+.specialty-item i {
+  color: var(--accent-cyan) !important;
+  margin-right: 0.75rem !important;
+}
+
+/* ==================== */
+/* Contact Section */
+/* ==================== */
+
+.contact {
+  background: var(--bg-secondary) !important;
+  border-top: 1px solid var(--border-subtle) !important;
+  padding: 4rem 2rem !important;
+}
+
+.contact h2 {
+  color: var(--text-primary) !important;
+  font-family: var(--font-mono) !important;
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+}
+
+.contact-info p {
+  color: var(--text-secondary) !important;
+  font-family: var(--font-mono) !important;
+  line-height: 2 !important;
+}
+
+.contact-info a {
+  color: var(--accent-cyan) !important;
+  text-decoration: none !important;
+  transition: color var(--timing-base) var(--easing) !important;
+  position: relative !important;
+}
+
+.contact-info a:hover {
+  color: var(--accent-lime) !important;
+}
+
+.contact-info a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-lime);
+  transition: width var(--timing-base) var(--easing);
+}
+
+.contact-info a:hover::after {
+  width: 100%;
+}
+
+/* ==================== */
+/* Scroll Indicator */
+/* ==================== */
+
+.scroll-indicator {
+  color: var(--text-muted) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.9rem !important;
+}
+
+.mouse {
+  border: 2px solid var(--border-subtle) !important;
+  border-radius: 20px !important;
+}
+
+.wheel {
+  background: var(--accent-lime) !important;
+  border-radius: 50% !important;
+}
+
+/* ==================== */
+/* Project Images */
+/* ==================== */
+
+.project-image {
+  border-radius: var(--radius-md) !important;
+  overflow: hidden !important;
+  border: 1px solid var(--border-subtle) !important;
+  background: var(--bg-secondary) !important;
+}
+
+.project-image img {
+  transition: transform var(--timing-slow) var(--easing) !important;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.08) !important;
+}
+
+.project-date {
+  color: var(--text-muted) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.85rem !important;
+  font-style: italic !important;
+}
+
+/* ==================== */
+/* Play Store Link */
+/* ==================== */
+
+.play-store-link {
+  background: var(--accent-lime) !important;
+  color: var(--bg-primary) !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: var(--radius-md) !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  transition: all var(--timing-base) var(--easing) !important;
+}
+
+.play-store-link:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: var(--glow-lime) !important;
+}
+
+/* ==================== */
+/* About CTA Button */
+/* ==================== */
+
+.about-cta-btn {
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan)) !important;
+  color: var(--text-primary) !important;
+  padding: 1rem 2rem !important;
+  border-radius: var(--radius-md) !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  transition: all var(--timing-base) var(--easing) !important;
+  border: none !important;
+}
+
+.about-cta-btn:hover {
+  transform: scale(1.05) !important;
+  box-shadow: var(--glow-purple) !important;
+}
+
+/* ==================== */
+/* Mobile Responsiveness */
+/* ==================== */
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem !important;
+  }
+
+  .section-title,
+  h2 {
+    font-size: 1.8rem !important;
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    padding: 0.75rem 1.5rem !important;
+  }
+}

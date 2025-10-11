@@ -1,0 +1,329 @@
+/**
+ * Dark Code Theme - Portfolio Modernization
+ * Cyberpunk/IDE aesthetic with monospace fonts and neon accents
+ */
+
+:root {
+  /* Color Palette - Dark Cyberpunk Theme */
+  --bg-primary: #06060a;
+  --bg-secondary: #0b0c10;
+  --bg-panel: #101218;
+  --bg-elevated: #16171d;
+
+  /* Neon Accents */
+  --accent-lime: #C7FF00;
+  --accent-cyan: #00D4FF;
+  --accent-purple: #7C4DFF;
+  --accent-magenta: #E91E63;
+
+  /* UI Colors */
+  --text-primary: #e4e4e7;
+  --text-secondary: #9aa1a6;
+  --text-muted: #6b7280;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(199, 255, 0, 0.3);
+
+  /* Glass Effects */
+  --glass-bg: rgba(22, 23, 29, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+
+  /* Shadows & Glows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6);
+  --glow-lime: 0 0 20px rgba(199, 255, 0, 0.4);
+  --glow-cyan: 0 0 20px rgba(0, 212, 255, 0.4);
+  --glow-purple: 0 0 20px rgba(124, 77, 255, 0.4);
+
+  /* Typography */
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Animation Timings */
+  --timing-fast: 160ms;
+  --timing-base: 280ms;
+  --timing-slow: 420ms;
+  --timing-slower: 600ms;
+  --easing: cubic-bezier(0.22, 0.9, 0.32, 1);
+  --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Z-index layers */
+  --z-base: 1;
+  --z-elevated: 10;
+  --z-sticky: 100;
+  --z-overlay: 1000;
+  --z-modal: 2000;
+}
+
+/* Base Resets & Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-mono);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+
+  /* Animated gradient background */
+  background: radial-gradient(ellipse at top, rgba(124, 77, 255, 0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at bottom, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+              var(--bg-primary);
+  background-attachment: fixed;
+}
+
+/* Selection Styling */
+::selection {
+  background: var(--accent-lime);
+  color: var(--bg-primary);
+}
+
+::-moz-selection {
+  background: var(--accent-lime);
+  color: var(--bg-primary);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-purple);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-cyan);
+}
+
+/* Focus Styles - Accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-lime);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Typography Overrides for Code Aesthetic */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+p, span, a, button, input, textarea {
+  font-family: var(--font-mono);
+}
+
+/* Code Bracket Accent for Headings */
+.section-title,
+h2 {
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::before,
+h2::before {
+  content: '<';
+  color: var(--accent-cyan);
+  margin-right: 0.5rem;
+  opacity: 0.7;
+}
+
+.section-title::after,
+h2::after {
+  content: '/>';
+  color: var(--accent-cyan);
+  margin-left: 0.5rem;
+  opacity: 0.7;
+}
+
+/* Neon Text Glow Effect */
+.gradient-text,
+.tech-highlight {
+  background: linear-gradient(135deg, var(--accent-lime) 0%, var(--accent-cyan) 50%, var(--accent-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* Container Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+}
+
+/* Glass Card Base Style */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* Elevated Card with Glow */
+.card-elevated {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  transition: all var(--timing-base) var(--easing);
+  will-change: transform, box-shadow, border-color;
+}
+
+.card-elevated:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-cyan);
+  box-shadow: var(--shadow-lg), var(--glow-cyan);
+}
+
+/* Button Base Styles */
+.btn-primary {
+  padding: var(--space-md) var(--space-xl);
+  background: var(--accent-lime);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--timing-base) var(--easing);
+  will-change: transform, box-shadow;
+}
+
+.btn-primary:hover {
+  transform: scale(1.03);
+  box-shadow: var(--glow-lime);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Animated Underline for Links */
+a.animated-link {
+  position: relative;
+  color: var(--accent-cyan);
+  text-decoration: none;
+  transition: color var(--timing-base) var(--easing);
+}
+
+a.animated-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-lime);
+  transition: width var(--timing-base) var(--easing);
+}
+
+a.animated-link:hover::after {
+  width: 100%;
+}
+
+/* Code Snippet Styling */
+code, pre {
+  font-family: var(--font-mono);
+  background: var(--bg-secondary);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
+
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.mb-xl { margin-bottom: var(--space-xl); }
+
+/* Fade In Animation Helper */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--timing-slower) var(--easing),
+              transform var(--timing-slower) var(--easing);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger Children Animation */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--timing-base) var(--easing),
+              transform var(--timing-base) var(--easing);
+}
+
+.stagger-children.visible > *:nth-child(1) { transition-delay: 0ms; }
+.stagger-children.visible > *:nth-child(2) { transition-delay: 80ms; }
+.stagger-children.visible > *:nth-child(3) { transition-delay: 160ms; }
+.stagger-children.visible > *:nth-child(4) { transition-delay: 240ms; }
+.stagger-children.visible > *:nth-child(5) { transition-delay: 320ms; }
+.stagger-children.visible > *:nth-child(6) { transition-delay: 400ms; }
+
+.stagger-children.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
