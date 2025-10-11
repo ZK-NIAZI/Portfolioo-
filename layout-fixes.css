@@ -1,0 +1,705 @@
+/**
+ * Layout Fixes - Responsive Grid & Alignment
+ * Fixes layout issues while preserving dark theme aesthetic
+ */
+
+/* ==================== */
+/* Enhanced CSS Variables */
+/* ==================== */
+
+:root {
+  /* Layout Variables */
+  --container-max: 1200px;
+  --container-padding: 24px;
+  --section-gap: 72px;
+  --section-gap-mobile: 36px;
+  --grid-gap: 20px;
+  --grid-gap-mobile: 16px;
+
+  /* Panel for rgba usage */
+  --panel-rgb: 10, 10, 12;
+
+  /* Responsive Breakpoints */
+  --bp-mobile: 768px;
+  --bp-tablet: 900px;
+  --bp-desktop: 1200px;
+}
+
+/* ==================== */
+/* Global Layout Fixes */
+/* ==================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+  font-family: var(--font-mono);
+  background: radial-gradient(ellipse at top left, #09101a 0%, #050507 60%);
+  color: #dfe7ee;
+}
+
+/* ==================== */
+/* Container System */
+/* ==================== */
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  width: 100%;
+}
+
+/* Section Spacing */
+section {
+  padding: var(--section-gap) 0;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 20px;
+  }
+
+  section {
+    padding: var(--section-gap-mobile) 0;
+  }
+}
+
+/* ==================== */
+/* Hero Layout Fix */
+/* ==================== */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 120px 0 80px;
+}
+
+.hero-wrapper {
+  width: 100%;
+}
+
+.hero-inner,
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 48px;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hero-right,
+.hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image-wrapper {
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+}
+
+.hero-image-container,
+.hero-visual img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Hero Typography - Responsive Sizing */
+.hero-title,
+h1.hero-title {
+  font-size: clamp(36px, 6vw, 72px) !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+  max-width: 100% !important;
+}
+
+.hero-description {
+  font-size: clamp(16px, 2vw, 20px) !important;
+  line-height: 1.6 !important;
+  max-width: 600px !important;
+}
+
+.hero-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: fit-content !important;
+}
+
+/* Hero Stats Inline */
+.hero-stats-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+}
+
+.stat-inline {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-value {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  color: var(--accent-lime);
+}
+
+.stat-text {
+  font-size: clamp(12px, 1.5vw, 14px);
+  color: var(--text-secondary);
+}
+
+/* Hero CTA Buttons */
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Hero Socials */
+.hero-socials {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Hero Responsive */
+@media (max-width: 900px) {
+  .hero {
+    min-height: auto;
+    padding: 100px 0 60px;
+  }
+
+  .hero-inner,
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hero-right,
+  .hero-visual {
+    order: -1;
+    justify-self: center;
+  }
+
+  .hero-image-wrapper {
+    max-width: 320px;
+  }
+
+  .hero-title::before,
+  .hero-title::after {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-stats-inline {
+    gap: 16px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta a,
+  .hero-cta button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==================== */
+/* Navbar Fix */
+/* ==================== */
+
+.navbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: var(--z-sticky) !important;
+  width: 100% !important;
+  padding: 12px 0 !important;
+}
+
+.navbar > * {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* ==================== */
+/* Section Headers */
+/* ==================== */
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-title,
+h2 {
+  font-size: clamp(32px, 5vw, 48px) !important;
+  margin-bottom: 12px !important;
+}
+
+.section-subtitle {
+  font-size: clamp(16px, 2vw, 18px) !important;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ==================== */
+/* Skills Grid Fix */
+/* ==================== */
+
+.skills-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.skill-category {
+  background: rgba(var(--panel-rgb), 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.03) !important;
+  border-radius: 12px !important;
+  padding: 32px !important;
+  transition: all var(--timing-base) var(--easing) !important;
+}
+
+.skill-category h3 {
+  font-size: clamp(20px, 3vw, 24px) !important;
+  margin-bottom: 24px !important;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--grid-gap);
+  align-items: start;
+}
+
+.skill-item {
+  background: rgba(var(--panel-rgb), 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 10px !important;
+  padding: 20px !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 12px !important;
+  transition: transform 0.22s ease, box-shadow 0.22s ease !important;
+}
+
+.skill-item:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6),
+              0 0 12px var(--accent-purple) !important;
+  border-color: var(--accent-purple) !important;
+}
+
+.skill-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+}
+
+.skill-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--grid-gap-mobile);
+  }
+
+  .skill-category {
+    padding: 24px !important;
+  }
+}
+
+/* ==================== */
+/* Projects Grid Fix */
+/* ==================== */
+
+.projects {
+  background: rgba(var(--panel-rgb), 0.2);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+  align-items: start;
+}
+
+.project-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.project-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+@media (max-width: 640px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* ==================== */
+/* Services Grid Fix */
+/* ==================== */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  align-items: start;
+}
+
+.service-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.service-features {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* ==================== */
+/* About Highlights Grid */
+/* ==================== */
+
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.highlight-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ==================== */
+/* Specialties Grid */
+/* ==================== */
+
+.specialties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+@media (max-width: 640px) {
+  .about-highlights,
+  .specialties-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================== */
+/* Timeline Layout */
+/* ==================== */
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.timeline-item {
+  width: 100%;
+}
+
+.education-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ==================== */
+/* Contact Section */
+/* ==================== */
+
+.contact {
+  text-align: center;
+}
+
+.contact-info {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+/* ==================== */
+/* Scroll Indicator */
+/* ==================== */
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* ==================== */
+/* Floating Elements Fix */
+/* ==================== */
+
+.floating-elements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.float-element {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* ==================== */
+/* Card Improvements */
+/* ==================== */
+
+.card-elevated {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Prevent overflow on hover effects */
+.project-card:hover,
+.service-card:hover,
+.highlight-card:hover,
+.skill-item:hover {
+  /* Use box-shadow instead of large borders */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6),
+              0 0 12px var(--accent-cyan) !important;
+}
+
+/* ==================== */
+/* Typography Constraints */
+/* ==================== */
+
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+p {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+/* ==================== */
+/* Button Sizing */
+/* ==================== */
+
+.cta-primary,
+.cta-secondary,
+.btn-primary {
+  white-space: nowrap;
+  min-width: fit-content;
+}
+
+@media (max-width: 640px) {
+  .cta-primary,
+  .cta-secondary,
+  .btn-primary {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+/* ==================== */
+/* Image Constraints */
+/* ==================== */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.company-logo,
+.flutter-icon {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ==================== */
+/* Subjects Grid */
+/* ==================== */
+
+.subjects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* ==================== */
+/* Feature Items */
+/* ==================== */
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ==================== */
+/* Achievement Items */
+/* ==================== */
+
+.achievement-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.achievement-item i {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+/* ==================== */
+/* Utility Classes */
+/* ==================== */
+
+.text-center {
+  text-align: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gap-sm { gap: 8px; }
+.gap-md { gap: 16px; }
+.gap-lg { gap: 24px; }
+
+/* ==================== */
+/* Print Styles */
+/* ==================== */
+
+@media print {
+  .navbar,
+  .floating-icons,
+  .scroll-indicator {
+    display: none;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+}
+
+/* ==================== */
+/* High DPI Screens */
+/* ==================== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
